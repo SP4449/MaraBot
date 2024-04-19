@@ -1,6 +1,6 @@
 <?php
 // Reemplaza 'TOKEN_DEL_BOT' con el token de acceso de tu bot
-define('BOT_TOKEN', '5926566701:AAGJKYnYPg39YoMB7cR0bqaUIpUSVpXa6HA');
+define('BOT_TOKEN', '5926566701:AAFMer3PXhi1XqVGlgI0BM8WDWjhRpwvfyc');
 
 
 function enviarMensaje($chatID, $mensaje) {
