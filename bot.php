@@ -67,4 +67,50 @@ if ($text == "/start" || $text == "/help") {
     if (!$encontrado) {
         enviarMensaje($chatID, "Lo siento, no encontré el producto \"$text\" en ningún pasillo.");
     }
+    // Recibir la solicitud POST de Telegram
+$update = json_decode(file_get_contents('php://input'), true);
+
+// Obtener el mensaje del usuario
+$message = $update['message']['text'];
+
+// Definir las respuestas según el mensaje
+$answers = [
+    'Carne' => 'Puedes encontrar la carne en el Pasillo 1.',
+    'Queso' => 'El queso está en el Pasillo 1.',
+    'Jamón' => 'Ve al Pasillo 1 para encontrar el jamón.',
+    'Leche' => 'La leche se encuentra en el Pasillo 2.',
+    'Yogurth' => 'Dirígete al Pasillo 2 para encontrar yogurth.',
+    'Cereal' => 'En el Pasillo 2 están los cereales.',
+    'Bebidas' => 'Las bebidas están en el Pasillo 3.',
+    'Jugos' => 'Puedes encontrar jugos en el Pasillo 3.',
+    'Pan' => 'El pan está en el Pasillo 4.',
+    'Pasteles' => 'Los pasteles están en el Pasillo 4.',
+    'Tortas' => 'En el Pasillo 4 están las tortas.',
+    'Detergente' => 'El detergente se encuentra en el Pasillo 5.',
+    'Lavaloza' => 'Dirígete al Pasillo 5 para encontrar lavaloza.',
+];
+
+// Verificar si el mensaje coincide con alguna respuesta
+$response = isset($answers[$message]) ? $answers[$message] : 'Lo siento, no entiendo la pregunta.';
+
+// Enviar la respuesta al usuario
+$responseData = [
+    'chat_id' => $update['message']['chat']['id'],
+    'text' => $response,
+];
+
+// Enviar la respuesta de vuelta a Telegram
+$apiToken = 'TU_TOKEN_DEL_BOT'; // Reemplaza con tu token
+$apiUrl = 'https://api.telegram.org/bot' . $apiToken . '/sendMessage';
+$ch = curl_init($apiUrl);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $responseData);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+$result = curl_exec($ch);
+curl_close($ch);
+
+    }
+}
+
 }
