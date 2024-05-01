@@ -6,8 +6,7 @@ $botToken = '5926566701:AAFMer3PXhi1XqVGlgI0BM8WDWjhRpwvfyc';  // Reemplaza 'tu_
 $webhookURL = 'https://sp4449.github.io/MaraBot/';  // Reemplaza 'tu-usuario' y 'tu-repositorio' con tu nombre de usuario y nombre del repositorio en GitHub
 
 // Construye la URL de la API de Telegram para configurar el webhook
-$apiURL = 'https://api.telegram.org/bot<5926566701:AAFMer3PXhi1XqVGlgI0BM8WDWjhRpwvfyc>/setWebhook?url=<https://sp4449.github.io/MaraBot/>
-' . $botToken . '/setWebhook?url=' . urlencode($webhookURL);
+$apiURL = 'https://api.telegram.org/bot' . $botToken . '/setWebhook?url=' . urlencode($webhookURL);
 
 // Realiza la solicitud para configurar el webhook
 $response = file_get_contents($apiURL);
