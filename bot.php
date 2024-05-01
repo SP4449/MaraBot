@@ -1,10 +1,10 @@
 <?php
 // Token de tu bot proporcionado por BotFather
-$botToken = 'TU_TOKEN_DEL_BOT';  // Reemplaza 'TU_TOKEN_DEL_BOT' con el token real de tu bot
+$botToken = '5926566701:AAFMer3PXhi1XqVGlgI0BM8WDWjhRpwvfyc';  // Reemplaza 'TU_TOKEN_DEL_BOT' con el token real de tu bot
 
 // Función para enviar mensajes al chat
 function enviarMensaje($chatID, $mensaje) {
-    $apiToken = 'TU_TOKEN_DEL_BOT'; // Reemplaza 'TU_TOKEN_DEL_BOT' con tu token
+    $apiToken = '5926566701:AAFMer3PXhi1XqVGlgI0BM8WDWjhRpwvfyc'; // Reemplaza 'TU_TOKEN_DEL_BOT' con tu token
     $apiUrl = 'https://api.telegram.org/bot' . $apiToken . '/sendMessage';
     $params = [
         'chat_id' => $chatID,
